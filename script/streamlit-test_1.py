@@ -29,11 +29,16 @@ st.write("""##### Recommendations""")
 
 user_movie = str(st.text_input("Gimme a movie:"))
 
-closest_match = difflib.get_close_matches(user_movie, movie_ratings['title'], n=1,cutoff=0.5).pop(0)
-
-st.write(f'Showing recommendations for: {closest_match}', 
+try:
+    if user_movie:
+        closest_match = (difflib.get_close_matches(user_movie, movie_ratings['title'], n=1,cutoff=0.45).pop(0))
+        st.write(f'Showing recommendations for: {closest_match}', 
             item_based_recommender(dense_matrix=movie_ratings, 
-            title=closest_match, n=5))
+            title=closest_match, n=5))   
+except Exception:
+    st.write('MayB u shood lern 2 spel')
+
+
 
 
 
