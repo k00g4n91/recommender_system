@@ -3,16 +3,14 @@ import pickle
 import pandas as pd
 import re
 import difflib
-from recommender_module import item_based_recommender
+from funcs_mods.recommender_module import item_based_recommender
 
-movie_ratings = pd.read_csv('F:\coding\Bootcamp\Section8\data\dense_matrix.csv')
+movie_ratings = pd.read_csv('https://raw.githubusercontent.com/k00g4n91/recommender_system/main/data/dense_matrix.csv')
 
 st.title("Movie Recommender")
  
 st.write("""
 ### Easing the agony of choice""")
-
-
 
 st.write("""##### Most Popular""")
 def popularity_recommender():
